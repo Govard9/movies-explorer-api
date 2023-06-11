@@ -5,23 +5,23 @@ const movieSchema = new mongoose.Schema(
   {
     country: {
       type: String,
-      required: [true, 'Поле name обязательно к заполнению.']
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     director: {
       type: String,
-      required: [true, 'Поле name обязательно к заполнению.']
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     duration: {
       type: Number,
-      required: [true, 'Поле name обязательно к заполнению.']
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     year: {
       type: String,
-      required: [true, 'Поле name обязательно к заполнению.']
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     description: {
       type: String,
-      required: [true, 'Поле name обязательно к заполнению.']
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     image: {
       type: String,
@@ -55,16 +55,16 @@ const movieSchema = new mongoose.Schema(
     },
     movieId: {
       type: Number,
-      required: true
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     nameRU: {
       type: String,
-      required: true
+      required: [true, 'Поле name обязательно к заполнению.'],
     },
     nameEN: {
       type: String,
-      required: true
-    }
+      required: [true, 'Поле name обязательно к заполнению.'],
+    },
   },
   { versionKey: false },
 );
