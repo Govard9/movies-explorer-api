@@ -48,11 +48,6 @@ const movieSchema = new mongoose.Schema(
       required: [true, 'Поле name обязательно к заполнению.'],
       default: 'https://famleisure.ru/wp-content/uploads/2020/07/videos.jpg',
     },
-    owner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
-      required: [true, 'Поле name обязательно к заполнению.'],
-    },
     movieId: {
       type: Number,
       required: [true, 'Поле name обязательно к заполнению.'],
@@ -63,6 +58,11 @@ const movieSchema = new mongoose.Schema(
     },
     nameEN: {
       type: String,
+      required: [true, 'Поле name обязательно к заполнению.'],
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user',
       required: [true, 'Поле name обязательно к заполнению.'],
     },
   },

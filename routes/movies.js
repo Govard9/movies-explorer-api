@@ -13,8 +13,8 @@ const {
   validateDeleteFilm,
 } = require('../utils/validations/movies');
 
-router.get('/movies', getMovies, auth);
-router.post('/movies', createFilm, auth, validateCreateFilm);
-router.delete('/movies/_id', deleteFilm, auth, validateDeleteFilm);
+router.get('/movies', auth, getMovies);
+router.post('/movies', auth, createFilm, validateCreateFilm);
+router.delete('/movies/:id', auth, deleteFilm, validateDeleteFilm);
 
 module.exports = router;
