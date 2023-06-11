@@ -6,6 +6,8 @@ const InvalidRequest = require('../errors/invalid-request');
 const UserIsRegister = require('../errors/user-is-register');
 const ErrorAuthorization = require('../errors/error-authorization');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.userRegister = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
     .then((hash) => User.create({
@@ -54,7 +56,7 @@ module.exports.userLogin = (req, res, next) => {
           }
           const token = jwt.sign(
             { _id: user._id },
-            'b5581cf09f1177d89ef6a4c822b05c847d8a71eb1d9adb2949d4fab9a6edf596',
+            NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
             { expiresIn: '7d' },
           );
           // аутентификация успешна

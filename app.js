@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+require('dotenv').config();
 const router = require('./routes/index');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
