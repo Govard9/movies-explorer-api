@@ -7,8 +7,8 @@ require('dotenv').config();
 const { DB_CONNECTION_STRING } = process.env;
 const router = require('./routes/index');
 
-const { LIMITER_OPTIONS } = require('./configurations');
-const limiter = rateLimit(LIMITER_OPTIONS);
+
+
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -16,7 +16,7 @@ const app = express();
 
 const handleErrors = require('./middlewares/handleErrors');
 
-app.use(limiter);
+
 app.use(helmet());
 
 app.use(express.json());
