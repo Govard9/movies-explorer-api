@@ -8,7 +8,7 @@ module.exports.getMovies = (req, res, next) => {
 
   Movie.find({ owner: userId })
     .then((movies) => {
-        res.send(movies);
+      res.send(movies);
     })
     .catch(next);
 };
