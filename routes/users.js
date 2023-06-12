@@ -18,6 +18,6 @@ router.post('/signup', userRegister, validateRegister);
 router.post('/signin', userLogin, validateLogin);
 
 router.get('/users/me', auth, getUserMe);
-router.patch('/users/me', auth, updateProfile, validateUpdateProfile,);
+router.patch('/users/me', auth, updateProfile, validateUpdateProfile);
 
 module.exports = router;

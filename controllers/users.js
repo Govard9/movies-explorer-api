@@ -101,7 +101,7 @@ module.exports.updateProfile = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new InvalidRequest('Пользователь не найден.'));
-      } else if (err.name === 'ValidationError') {
+      } if (err.name === 'ValidationError') {
         return next(new InvalidRequest('Переданы некорректные данные при изменении пользователя.'));
       }
       return next(err);

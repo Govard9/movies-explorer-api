@@ -4,16 +4,28 @@ const AccessDenied = require('../errors/access-denied');
 const NotFoundError = require('../errors/not-found-err');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({})
-    .then((movie) => {
-      res.send(movie);
+  const userId = req.user._id;
+
+  Movie.find({ owner: userId })
+    .then((movies) => {
+        res.send(movies);
     })
     .catch(next);
 };
 
 module.exports.createFilm = (req, res, next) => {
   const {
-    country, director, duration, year, description, image, trailerLink, thumbnail, movieId, nameRU, nameEN,
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
   } = req.body;
   const owner = req.user._id;
 
