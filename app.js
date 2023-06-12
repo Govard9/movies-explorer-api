@@ -18,11 +18,11 @@ const app = express();
 
 const handleErrors = require('./middlewares/handleErrors');
 
-app.use(limiter);
 app.use(helmet());
 
 app.use(express.json());
 app.use(requestLogger); // логгер запросов
+app.use(limiter);
 app.use(router);
 app.use(errorLogger); // логгер ошибок
 
