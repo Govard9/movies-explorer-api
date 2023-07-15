@@ -15,6 +15,23 @@ const limiter = rateLimit(LIMITER_OPTIONS);
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+const allowedCors = [
+  'http://movies-explorer.govard.nomoredomains.xyz',
+  'https://movies-explorer.govard.nomoredomains.xyz',
+  'http://api.movies-explorer.govard.nomoredomains.xyz',
+  'https://api.movies-explorer.govard.nomoredomains.xyz',
+  'localhost:3000',
+  'http://localhost',
+  'http://localhost:3001',
+  'http://localhost:3000',
+];
+
+const corsOptions = {
+  origin: allowedCors,
+  optionsSuccessStatus: 200,
+  credentials: true,
+};
+
 const app = express();
 
 const handleErrors = require('./middlewares/handleErrors');
@@ -24,7 +41,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(requestLogger); // логгер запросов
 app.use(limiter);
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(router);
 app.use(errorLogger); // логгер ошибок
 
