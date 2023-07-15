@@ -20,6 +20,8 @@ const allowedCors = [
   'https://movies-explorer.govard.nomoredomains.xyz',
   'http://api.movies-explorer.govard.nomoredomains.xyz',
   'https://api.movies-explorer.govard.nomoredomains.xyz',
+  'http://www.movies-explorer.govard.nomoredomains.xyz',
+  'https://www.movies-explorer.govard.nomoredomains.xyz',
   'http://api.movie-explorer.govard.nomoredomains.rocks',
   'https://api.movie-explorer.govard.nomoredomains.rocks',
   'localhost:3000',
